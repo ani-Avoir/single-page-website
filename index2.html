@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Website</title>
+	<link href=" https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.2.0/css/line.min.css " rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+	<style>
+		
+        *{
+        	padding: 0;
+        	margin: 0;
+        	box-sizing: border-box;
+        	text-decoration: none;
+        	list-style: none;
+        	scroll-behavior: smooth;
+        }
+
+        :root {
+
+			  --bg-color: #1F253F;
+			  --color-section: #2F3267;
+			  --color-box: #414890;
+			  --color-red: #F75444;
+			  --color-blue: #6F6AFA;
+			  --color-green: #27B6AA;
+			  --color-yellow: #EFD55C;
+			  --color-white: #fff;
+
+			  --container-width-lg: 85%;
+			  --container-width-md: 90%;
+			  --container-width-sm: 94%;
+
+		}
+		body {
+
+			 color: var(--color-white);
+			 background-color: var(--bg-color);
+			 line-height: 1.7;
+             font-family: "Montserrat", sans-serif;
+		}
+
+		.container {
+
+			     width: var(--container-width-lg);
+			     margin: 0 auto;
+
+		}
+		section , footer {
+
+			  padding: 6rem 0 ;
+
+		}
+
+		section h2 {
+
+			text-align: center;
+			padding: 2rem 0 4rem 0;
+		}
+
+		h1{
+			font-size: 2.4rem;
+
+		}
+		h2 {
+            font-size: 2rem;
+		}
+		h3 {
+			font-size: 1.6rem;
+
+		}
+		h4 {
+
+			 font-size: 1.2rem;
+		}
+
+		a{
+			color: var(--color-white);
+		}
+		img {
+			width: 100%;
+			display: block;
+			object-fit: cover;
+		}
+		.btn {
+
+			   background-color: var(--color-red);
+			   padding: 1rem 2rem;
+			   color: var(--color-white);
+			   margin-top: 2rem;
+			   border: none;
+		}
+		nav {
+			width: 100vw;
+			height: 5rem;
+            position: fixed;
+            z-index: 11;
+
+		}
+		.nav__container{
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+            align-items: center;
+		}
+
+		.nav__menu {
+
+              display: flex;
+              justify-content: space-between;
+              gap: 1.2rem ;
+		}
+		.nav__container button {
+			display: none;
+		}
+		.header__container{
+			display: flex;
+			/*justify-content: space-between;*/
+            align-items: center;
+            gap: 8rem;
+
+
+		}
+		.header__left p {
+			padding: 2rem 3rem 0 0;
+			text-align: justify;
+		}
+
+		.categories{
+			background-color: var(--color-section);
+			height: 60vh;
+		}
+		.categories__container{
+
+			display: grid;
+			grid-template-columns: 40% 60%;
+
+		}
+		.category__left p {
+
+			      padding: 0 2rem 0 0;
+		}
+		.categories .category__right {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+
+		}
+		.categories .category__right .box {
+			background-color: var(--color-box);
+            padding: 2rem;
+            border-radius: 2rem;
+            line-height: 2;
+		}
+		.box p {
+			font-size: 12px;
+		}
+		.box .icon1 i {
+
+			background-color: var(--color-blue);
+			padding: 0.5rem;
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		.box .icon2 i {
+
+			background-color: var(--color-red);
+			padding: 0.5rem;
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		.box .icon3 i {
+
+			background-color: var(--color-blue);
+			padding: 0.5rem;
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		.box .icon4 i {
+
+			background-color: var(--color-yellow);
+			padding: 0.5rem;
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		.box .icon5 i {
+
+			background-color: var(--color-green);
+			padding: 0.5rem;
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		.box .icon6 i {
+
+			background-color: var(--color-yellow);
+			padding: 0.5rem;
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		/*.courses{*/
+			/*margin-top: 4rem;*/
+		/*}*/
+		.courses__container {
+                 display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+          }
+          .course_box {
+  				padding: 2rem;
+  				background-color: var(--color-box);
+			}
+			.course_box .course_info {
+				padding: 2rem 0;
+			}
+			.faqs__container {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 2rem;
+			}
+			.faq_box{
+				display: flex;
+				gap: 15px;
+				background-color: #6D62F9;
+				padding: 2rem;
+			}
+			.faq_qs p {
+				display: none;
+			}
+			.testimonial {
+
+				display: grid;
+				grid-template-columns: repeat(7, 2fr);
+                min-height: 350px;
+				/*gap: 1rem;*/
+			}
+			.testimonial article{
+				text-align: center;
+			}
+			.gravater img {
+
+				width: 5rem;
+				height: 5rem;
+				
+
+			}
+			.gravater img {
+				border-radius: 50%;
+				display:block;
+                margin:auto;
+			}
+
+			.testimonial_desc {
+
+				background-color: #6D62F9;
+				padding: 1rem 2rem;
+				margin-top: 3rem;
+			}
+
+			.swiper-pagination-bullet {
+				  background-color: var(--color-white);
+				  opacity: 1;
+				}
+
+				span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+							  background-color: blue;
+							  opacity: 1;
+							}
+
+							.footer__container {
+								display: grid;
+							    grid-template-columns: repeat(4, 2fr);
+							}
+
+							.footer1 p {
+								padding:1rem 5rem 0 0;
+                                text-align: justify;
+							}
+							.social li {
+								float: left;
+								padding-right: 10px;
+
+							}
+
+	</style>
+</head>
+
+<body>
+
+	<nav>
+		<div class="container nav__container">
+			<a href="index2.html"><h4>Aniruddha</h4></a>
+			<ul class="nav__menu">
+				<li><a href="">Home</a></li>
+				<li><a href="#categories">Services</a></li>
+				<li><a href="#courses">Courses</a></li>
+				<li><a href="#faqs">FAQs</a></li>
+				<li><a href="#testimonials">Testimonials</a></li>
+			</ul>
+			<button class="btn"><a href=""><i class="uil uil-bars"></i></a></button>
+			<button class="btn"><a href=""><i class="uil uil-times"></i></a></button>
+		</div>
+	</nav>
+	<section class="banner">
+		<div class="container header__container">
+		<div class="header__left">
+			<h1>Lorem Ipsum</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a rhoncus mauris, sit amet tempus sapien. Donec fermentum dui a tincidunt laoreet. In lobortis eu turpis ut gravida.</p>
+			<button class="btn"><a href="">Contact Us</a></button>
+		</div>
+		<div class="header__right">
+			<img src="./img2/images/header.svg" alt="">
+		</div>
+       </div>
+	</section>
+	<section class="categories" id="categories">
+		<div class="container categories__container">
+		<div class="category__left">
+			<h1>Lorem Ipsum</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a rhoncus mauris, sit amet tempus sapien. Donec fermentum dui a tincidunt laoreet. In lobortis eu turpis ut gravida.</p>
+			<button class="btn"><a href="">Contact Us</a></button>
+		</div>
+		<div class="category__right">
+			<article class="box"><span class="icon1"><i class="uil uil-desktop-cloud-alt"></i></span>
+				<h5>Blockchain</h5>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, molestias.</p>
+			</article>
+			<article class="box"><span class="icon2"><i class="uil uil-desktop-cloud-alt"></i></span>
+				<h5>Blockchain</h5>
+				<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Quae, nihil?</p>
+			</article>
+			<article class="box"><span class="icon3"><i class="uil uil-desktop-cloud-alt"></i></span>
+				<h5>Blockchain</h5>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, maiores?</p>
+			</article>
+			<article class="box"><span class="icon4"><i class="uil uil-desktop-cloud-alt"></i></span>
+				<h5>Blockchain</h5>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Vero, amet!</p>
+			</article>
+			<article class="box"><span class="icon5"><i class="uil uil-desktop-cloud-alt"></i></span>
+				<h5>Blockchain</h5>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ab, dolorum.</p>
+			</article>
+			<article class="box"><span class="icon6"><i class="uil uil-desktop-cloud-alt"></i></span>
+				<h5>Blockchain</h5>
+				<p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Quae, odio.</p>
+			</article>
+		</div>
+       </div>
+	</section>
+	<section class="courses" id="courses">
+		<h2>Popular Courses</h2>
+		<div class="container courses__container">
+			      
+			  <article class="course_box">
+			  	      <div class="course_image">
+			  	      	<img src="./img2/images/course1.jpg" alt="">
+			  	      </div>
+			  	      <div class="course_info">
+			  	      	<h4>Lorem Ipsum</h4>
+			  	      <p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, laboriosam error, odio in quae repellendus optio.</p>
+			  	      <button class="btn"><a href="">Learn More</a></button>
+			  	      </div>
+			  </article>
+			  <article class="course_box">
+			  	      <div class="course_image">
+			  	      	<img src="./img2/images/course2.jpg" alt="">
+			  	      </div>
+			  	      <div class="course_info">
+			  	      	<h4>Lorem Ipsum</h4>
+			  	      <p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, laboriosam error, odio in quae repellendus optio.</p>
+			  	      <button class="btn"><a href="">Learn More</a></button>
+			  	      </div>
+			  </article>
+              <article class="course_box">
+			  	      <div class="course_image">
+			  	      	<img src="./img2/images/course3.jpg" alt="">
+			  	      </div>
+			  	      <div class="course_info">
+			  	      	<h4>Lorem Ipsum</h4>
+			  	      <p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, laboriosam error, odio in quae repellendus optio.</p>
+			  	      <button class="btn"><a href="">Learn More</a></button>
+			  	      </div>
+			  </article>			  
+		</div>
+	</section>
+		<section class="faqs" id="faqs">
+		<h2>Frequently Asked Questions</h2>
+		<div class="container faqs__container">
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+			<article class="faq_box">
+			<div class="faq_icon">
+				<i class="uil uil-plus"></i>
+			</div>
+			<div class="faq_qs">
+				<h4>Lorem Ipsum</h4>
+				<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi voluptas odit fugit deserunt! Provident alias, deserunt.</p>
+			</div>
+			</article>
+		</div>
+	</section>
+	<section class="container testimonials__container" id="testimonials">
+		<h2>Testimonials</h2>
+		<div class="swiper mySwiper">
+			<div class="testimonial swiper-wrapper">
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+				<article class="swiper-slide">
+				<div class="gravater">
+					<img src="./img2/images/avatar1.jpg" alt="">
+				</div>
+				<div class="testimonial_info">
+					<h4>John Doe</h4>
+					<p>Professional</p>
+				</div>
+				<div class="testimonial_desc">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque corrupti reprehenderit vero recusandae consequuntur et molestias.</p>
+				</div>
+				</article>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container footer__container">
+			<div class="footer1">
+				<a href="index2.html"><h4>Aniruddha</h4></a>
+				<p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Non ipsum, assumenda. Ut repellat nulla commodi quod?</p>
+			</div>
+			<div class="footer2">
+				<h2>Permalinks</h2>
+				<ul class="permalinks">
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Courses</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			</div>
+			<div class="footer3">
+				<h2>Privacy</h2>
+				<ul class="permalinks">
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Courses</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			</div>
+			<div class="footer4">
+				<h2>Contact Us</h2>
+				<p>+0123456789</p>
+				<p>abc@email.com</p>
+				<ul class="social">
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Courses</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script>
+		
+		       let faqicon = document.querySelectorAll(".faq_icon")
+		       console.log(faqicon.length)
+		       let panel = document.querySelectorAll(".text")
+               console.log(panel.length)
+		       for( let i = 0 ; i < faqicon.length ; i++ ) {
+
+		       	             faqicon[i].addEventListener("click" , function() {
+
+		       	              
+
+                                       if(panel[i].style.display == 'none') {
+
+                                       	    panel[i].style.display = 'block';    
+                                       }else {
+
+                                       	    panel[i].style.display = 'none' 
+                                       }
+		       	             })
+		       }
+
+		       var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 2,
+      spaceBetween: 45,
+      loop: true ,
+      autoplay: {
+      	delay: 1000,
+        disableOnInteraction: false,
+      } ,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+		       const nav = document.querySelector("nav")
+
+		       window.addEventListener("scroll" , function(e){
+
+		       	            nav.style.backgroundColor = '#414890';
+
+		       	            let scrollAmount = window.scrollY;
+							//  console.clear()
+							//  console.log(scrollAmount)
+                            
+                            if (scrollAmount === 0) {
+
+                            	nav.removeAttribute("style")
+                            }
+		       })
+	</script>
+	
+</body>
+</html>
